@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 
 const execPath = path.resolve("npshell");
-const workSpaceDir = path.resolve("test/_workSpace");
+const workspaceDir = path.resolve("test/_workspace");
 
 describe("TestCases", () => {
   shell.cd("test");
@@ -15,12 +15,12 @@ describe("TestCases", () => {
     .forEach(item => {
       describe(item.name, () => {
         let testItemDir = path.resolve("cases", item.name);
-        shell.mkdir("-p", path.join(testItemDir, "_workSpaceTemplate"));
+        shell.mkdir("-p", path.join(testItemDir, "_template"));
         shell.exec("make", {
           silent: true,
-          cwd: path.join(testItemDir, "_workSpacePrepare")
+          cwd: path.join(testItemDir, "_prepare")
         });
-        const itemWorkSpace = path.resolve(workSpaceDir, item.name);
+        const itemWorkSpace = path.resolve(workspaceDir, item.name);
 
         shell
           .ls("-l", testItemDir)
@@ -30,7 +30,7 @@ describe("TestCases", () => {
             shell.mkdir("-p", caseWorkSpace);
             shell.cp(
               "-R",
-              path.join(testItemDir, "_workSpaceTemplate/*"),
+              path.join(testItemDir, "_template/*"),
               caseWorkSpace
             );
 

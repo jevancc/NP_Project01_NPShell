@@ -40,5 +40,5 @@ yarn-error.log
 build
 
 # Test Cases builds
-test/_workSpace
-test/**/_workSpaceTemplate
+test/_workspace
+test/**/_template
