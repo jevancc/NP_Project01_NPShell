@@ -42,3 +42,7 @@ build
 # Test Cases builds
 test/_workspace
 test/**/_template
+
+# Logs and Reports
+*.log
+test/mochawesome-report
